@@ -7,3 +7,5 @@ FILES_${PN} = "\
     ${libexecdir}/gcc/${EXTERNAL_TARGET_SYS} \
     ${@'${gcc_binaries}'.replace('${TARGET_PREFIX}', '${bindir}/${EXTERNAL_TARGET_SYS}-')} \
 "
+
+INSANE_SKIP_${PN} += "dev-so staticdev"

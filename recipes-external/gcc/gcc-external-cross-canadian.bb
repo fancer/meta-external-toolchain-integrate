@@ -1,6 +1,8 @@
 require recipes-external/gcc/gcc-external.inc
 inherit external-toolchain-cross-canadian
 
+PN .= "-${TRANSLATED_TARGET_ARCH}"
+
 RDEPENDS_${PN} = "binutils-external-cross-canadian-${TRANSLATED_TARGET_ARCH}"
 FILES_${PN} = "\
     ${libdir}/gcc/${EXTERNAL_TARGET_SYS} \

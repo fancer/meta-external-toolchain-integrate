@@ -12,11 +12,11 @@ PREFERRED_PROVIDER_virtual/${TARGET_PREFIX}compilerlibs ?= "gcc-runtime-external
 PREFERRED_PROVIDER_virtual/${TARGET_PREFIX}libc-for-gcc ?= "glibc-external"
 PREFERRED_PROVIDER_virtual/${TARGET_PREFIX}libc-initial ?= "glibc-external"
 PREFERRED_PROVIDER_gcc-sanitizers ?= "gcc-sanitizers-external"
-PREFERRED_PROVIDER_glibc ?= "glibc-external"
 PREFERRED_PROVIDER_virtual/libc ?= "glibc-external"
 PREFERRED_PROVIDER_virtual/libintl ?= "glibc-external"
 PREFERRED_PROVIDER_virtual/libiconv ?= "glibc-external"
 PREFERRED_PROVIDER_gdbserver ??= "gdb"
+PREFERRED_PROVIDER_virtual/libc-locale ?= "glibc-locale-external"
 PREFERRED_PROVIDER_oprofile ??= "oprofile"
 
 PREFERRED_PROVIDER_gcc-cross-canadian-${TRANSLATED_TARGET_ARCH} ??= "gcc-external-cross-canadian-${TRANSLATED_TARGET_ARCH}"
@@ -27,6 +27,14 @@ PREFERRED_PROVIDER_gdb-cross-canadian-${TRANSLATED_TARGET_ARCH} ??= "gdb-externa
 # so we can't use ?=
 PREFERRED_PROVIDER_libgcc = "libgcc-external"
 PREFERRED_PROVIDER_linux-libc-headers = "linux-libc-headers-external"
+
+# Glibc providers definition to resolve the build warnings
+PREFERRED_PROVIDER_glibc ?= "glibc-external"
+PREFERRED_PROVIDER_glibc-initial ?= "glibc-external"
+PREFERRED_PROVIDER_localedef ?= "glibc-locale-external"
+PREFERRED_PROVIDER_glibc-locale ?= "glibc-locale-external"
+PREFERRED_PROVIDER_glibc-mtrace ?= "glibc-mtrace-external"
+PREFERRED_PROVIDER_glibc-scripts ?= "glibc-scripts-external"
 
 # Pass --no-sysroot-suffix when using an external toolchain with the SDK
 TOOLCHAIN_TARGET_TASK_append = " sdk-env-external-toolchain"
@@ -44,6 +52,9 @@ PNBLACKLIST[uclibc-initial] = "not building with an external toolchain"
 PNBLACKLIST[glibc] = "not building with an external toolchain"
 PNBLACKLIST[glibc-initial] = "not building with an external toolchain"
 PNBLACKLIST[glibc-intermediate] = "not building with an external toolchain"
+PNBLACKLIST[glibc-locale] = "not building with an external toolchain"
+PNBLACKLIST[glibc-mtrace] = "not building with an external toolchain"
+PNBLACKLIST[glibc-scripts] = "not building with an external toolchain"
 PNBLACKLIST[gcc-runtime] = "not building with an external toolchain"
 PNBLACKLIST[gcc-sanitizers] = "not building with an external toolchain"
 PNBLACKLIST[gcc-source] = "not building with an external toolchain"

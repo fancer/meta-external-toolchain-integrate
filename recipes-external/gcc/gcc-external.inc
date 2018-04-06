@@ -4,7 +4,5 @@ SECTION = "devel"
 GCC_VERSION := "${@external_run(d, 'gcc', '-dumpversion').rstrip()}"
 PV = "${GCC_VERSION}"
 
-inherit external-toolchain
-
 gcc_binaries = "gcc gcc-${@'${PV}'.replace('${EXTERNAL_PV_SUFFIX}', '')} \
                 gcc-ar gcc-nm gcc-ranlib cc gcov gcov-tool c++ g++ cpp gfortran"

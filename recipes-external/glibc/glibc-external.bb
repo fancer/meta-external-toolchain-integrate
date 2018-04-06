@@ -168,6 +168,7 @@ FILES_${PN}-utils = "\
     ${bindir}/iconv \
     ${sbindir}/iconvconfig \
     ${bindir}/lddlibc4 \
+    ${bindir}/ldd \
     ${bindir}/locale \
     ${bindir}/makedb \
     ${bindir}/pcprofiledump \
